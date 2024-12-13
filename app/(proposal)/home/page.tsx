@@ -1,15 +1,13 @@
 "use client";
 import { useState } from "react";
+import { HfInference } from "@huggingface/inference";
+import { ethers } from "ethers";
 
 declare global {
   interface Window {
-    ethereum: any;
+    ethereum:import('ethers').Eip1193Provider;
   }
 }
-
-import { HfInference } from "@huggingface/inference";
-import { ethers, parseEther } from "ethers";
-import { create } from "ipfs-http-client";
 import axios from 'axios';
 
 export default function Home() {
@@ -29,13 +27,13 @@ export default function Home() {
   const pinataApiKey = '853de9720224327dafff';  // Replace with your API Key
   const pinataSecretApiKey = 'bf59fb47ae7ce8843efd7d39e5685d1b40ddaa71b4b3deb535f93b525fae18e0';  // Replace with your Secret API Key
 
-  // IPFS client setup
-  const ipfsClient = create({
-    url: "https://ipfs.infura.io:5001/api/v0", // Infura's IPFS gateway URL
-    headers: {
-      authorization: `853de9720224327dafff`, // Replace with your API key
-    },
-  });
+  // // IPFS client setup
+  // const ipfsClient = create({
+  //   url: "https://ipfs.infura.io:5001/api/v0", // Infura's IPFS gateway URL
+  //   headers: {
+  //     authorization: `853de9720224327dafff`, // Replace with your API key
+  //   },
+  // });
 
   // Wallet Connection
   const connectWallet = async () => {

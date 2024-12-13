@@ -4,8 +4,13 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ethers } from "ethers"; // Import ethers.js
 
+type UploadedFile = {
+  ipfs_pin_hash: string;
+  file_name: string;
+};
+
 export default function LandingPage() {
-  const [uploadedFiles, setUploadedFiles] = useState<any[]>([]);
+  const [uploadedFiles, setUploadedFiles] = useState<UploadedFile[]>([]);
   const [votingInProgress, setVotingInProgress] = useState(false);
   const [proposalCount, setProposalCount] = useState<number>(0); // Initialize the proposal count
 
@@ -31,7 +36,7 @@ export default function LandingPage() {
     fetchUploadedFiles();
   }, []);
 
-  const voteOnProposal = async (file: any, vote: boolean) => {
+  const voteOnProposal = async (file: UploadedFile, vote: boolean) => {
     setVotingInProgress(true);
     const proposalId = proposalCount + 1; // Increment proposalId
 
@@ -250,7 +255,8 @@ export default function LandingPage() {
       <section className="text-center mb-12 py-6 bg-zinc-800 rounded-2xl w-full">
         <h2 className="text-2xl font-bold mb-4">How It Works</h2>
         <p className="text-lg text-gray-300 mb-6">
-          GovernX is a platform that allows you to create and vote on DAO proposals created using AI. This is how it works :
+          GovernX is a platform that allows you to create and vote on DAO
+          proposals created using AI. This is how it works :
         </p>
         <div className="space-y-8 px-40">
           <div className="bg-zinc-600 rounded-2xl px-4 py-4 space-y-4 w-full">
@@ -259,7 +265,9 @@ export default function LandingPage() {
                 1
               </div>
               <div className="flex items-center justify-center px-2">
-                <h3 className="text-xl font-bold text-white px-3">Connect Wallet:</h3>
+                <h3 className="text-xl font-bold text-white px-3">
+                  Connect Wallet:
+                </h3>
                 <p className="text-gray-300">
                   Easily connect your wallet (e.g., MetaMask) to the platform to
                   initiate transactions.
@@ -272,9 +280,7 @@ export default function LandingPage() {
                 2
               </div>
               <div className="flex items-center justify-center px-2">
-                <h3 className="text-xl font-bold text-white px-2">
-                  Proposal:
-                </h3>
+                <h3 className="text-xl font-bold text-white px-2">Proposal:</h3>
                 <p className="text-gray-300">
                   Write your DAO proposal in the provided text box, specifying
                   the recipient address and amount.
@@ -289,7 +295,9 @@ export default function LandingPage() {
               <div className="flex items-center justify-center px-2">
                 <h3 className="text-xl font-bold text-white px-2">IPFS:</h3>
                 <p className="text-gray-300">
-                  Store the cryptic proposal by A.I. on IPFS and get the hash. This hash will be used to identify the proposal on the blockchain.
+                  Store the cryptic proposal by A.I. on IPFS and get the hash.
+                  This hash will be used to identify the proposal on the
+                  blockchain.
                 </p>
               </div>
             </div>
@@ -301,7 +309,8 @@ export default function LandingPage() {
               <div className="flex items-center justify-center px-2">
                 <h3 className="text-xl font-bold text-white px-2">Voting:</h3>
                 <p className="text-gray-300">
-                  Once done then this proposal will be voted on by the community members.
+                  Once done then this proposal will be voted on by the community
+                  members.
                 </p>
               </div>
             </div>
@@ -360,17 +369,13 @@ export default function LandingPage() {
       </section>
 
       <footer className="mt-12 text-center">
-  <p className="text-lg text-gray-300">
-    Want to learn more or start using GovernX?{" "}
-    <a
-      href="mailto:alok@web3gov.com"
-      className="text-blue-400 underline"
-    >
-      Contact Alok
-    </a>
-  </p>
-</footer>
-
+        <p className="text-lg text-gray-300">
+          Want to learn more or start using GovernX?{" "}
+          <a href="mailto:alok@web3gov.com" className="text-blue-400 underline">
+            Contact Alok
+          </a>
+        </p>
+      </footer>
     </div>
   );
 }
