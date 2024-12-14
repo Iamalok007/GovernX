@@ -12,6 +12,8 @@ GovernX is a decentralized governance platform built with Next.js, smart contrac
 
 ## Getting Started
 
+##Visit the live project here: [Drawing App](https://govern-x-tau.vercel.app/)
+
 ### Installation
 
 Clone the repository and install dependencies:
@@ -24,3 +26,5 @@ npm install
 yarn install
 # or
 pnpm install
+
+
