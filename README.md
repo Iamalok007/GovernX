@@ -1,6 +1,6 @@
-# Autogov
+# GovernX
 
-Autogov is a decentralized governance platform built with Next.js, smart contracts, and blockchain technologies. It allows users to propose and vote on decisions within a decentralized organization (DAO), stream funds, and interact with blockchain-powered contracts in a secure and transparent manner.
+GovernX is a decentralized governance platform built with Next.js, smart contracts, and blockchain technologies. It allows users to propose and vote on decisions within a decentralized organization (DAO), stream funds, and interact with blockchain-powered contracts in a secure and transparent manner.
 
 ## Features
 
